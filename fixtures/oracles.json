@@ -1,0 +1,2645 @@
+[
+  {
+    "request": {
+      "id": "Case01",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case01",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [],
+      "final": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case02",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "link",
+          "source_name": "A",
+          "new_name": "B"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case02",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "link",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              },
+              {
+                "id": "B",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 2,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          },
+          {
+            "id": "B",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 2,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case03",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "link",
+          "source_name": "A",
+          "new_name": "B"
+        },
+        {
+          "id": "E2",
+          "op": "unlink",
+          "name": "A"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case03",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "link",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              },
+              {
+                "id": "B",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 2,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "unlink",
+          "state": {
+            "names": [
+              {
+                "id": "B",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [
+          {
+            "id": "B",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case04",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "link",
+          "source_name": "A",
+          "new_name": "B"
+        },
+        {
+          "id": "E2",
+          "op": "unlink",
+          "name": "A"
+        },
+        {
+          "id": "E3",
+          "op": "unlink",
+          "name": "B"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case04",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "link",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              },
+              {
+                "id": "B",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 2,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "unlink",
+          "state": {
+            "names": [
+              {
+                "id": "B",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "id": "E3",
+          "op": "unlink",
+          "state": {
+            "names": [],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 0,
+                "retention_basis": "none",
+                "reclamation_eligible": true
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 0,
+            "retention_basis": "none",
+            "reclamation_eligible": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case05",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "unlink",
+          "name": "A"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case05",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "unlink",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [
+          {
+            "id": "R",
+            "file_id": "F"
+          }
+        ],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 1,
+            "retention_basis": "references_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case06",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "unlink",
+          "name": "A"
+        },
+        {
+          "id": "E3",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case06",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "unlink",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "id": "E3",
+          "op": "close",
+          "state": {
+            "names": [],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 0,
+                "retention_basis": "none",
+                "reclamation_eligible": true
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 0,
+            "retention_basis": "none",
+            "reclamation_eligible": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case07",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case07",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "close",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case08",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "open",
+          "name": "A",
+          "reference_id": "S"
+        },
+        {
+          "id": "E3",
+          "op": "unlink",
+          "name": "A"
+        },
+        {
+          "id": "E4",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case08",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              },
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 2,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "id": "E3",
+          "op": "unlink",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              },
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 2,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "id": "E4",
+          "op": "close",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [
+          {
+            "id": "S",
+            "file_id": "F"
+          }
+        ],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 1,
+            "retention_basis": "references_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case09",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "open",
+          "name": "A",
+          "reference_id": "S"
+        },
+        {
+          "id": "E3",
+          "op": "unlink",
+          "name": "A"
+        },
+        {
+          "id": "E4",
+          "op": "close",
+          "reference_id": "R"
+        },
+        {
+          "id": "E5",
+          "op": "close",
+          "reference_id": "S"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case09",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              },
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 2,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "id": "E3",
+          "op": "unlink",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              },
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 2,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "id": "E4",
+          "op": "close",
+          "state": {
+            "names": [],
+            "references": [
+              {
+                "id": "S",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "id": "E5",
+          "op": "close",
+          "state": {
+            "names": [],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 0,
+                "retention_basis": "none",
+                "reclamation_eligible": true
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 0,
+            "retention_basis": "none",
+            "reclamation_eligible": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case10",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        },
+        {
+          "id": "G",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        },
+        {
+          "id": "B",
+          "file_id": "G"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "unlink",
+          "name": "A"
+        },
+        {
+          "id": "E3",
+          "op": "link",
+          "source_name": "B",
+          "new_name": "A"
+        },
+        {
+          "id": "E4",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case10",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          },
+          {
+            "id": "B",
+            "file_id": "G"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          },
+          {
+            "id": "G",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "open",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              },
+              {
+                "id": "B",
+                "file_id": "G"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 1,
+                "retention_basis": "names_and_references",
+                "reclamation_eligible": false
+              },
+              {
+                "id": "G",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "id": "E2",
+          "op": "unlink",
+          "state": {
+            "names": [
+              {
+                "id": "B",
+                "file_id": "G"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              },
+              {
+                "id": "G",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "id": "E3",
+          "op": "link",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "G"
+              },
+              {
+                "id": "B",
+                "file_id": "G"
+              }
+            ],
+            "references": [
+              {
+                "id": "R",
+                "file_id": "F"
+              }
+            ],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 1,
+                "retention_basis": "references_only",
+                "reclamation_eligible": false
+              },
+              {
+                "id": "G",
+                "link_count": 2,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "id": "E4",
+          "op": "close",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "G"
+              },
+              {
+                "id": "B",
+                "file_id": "G"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 0,
+                "retention_basis": "none",
+                "reclamation_eligible": true
+              },
+              {
+                "id": "G",
+                "link_count": 2,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "G"
+          },
+          {
+            "id": "B",
+            "file_id": "G"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 0,
+            "retention_basis": "none",
+            "reclamation_eligible": true
+          },
+          {
+            "id": "G",
+            "link_count": 2,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case11",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [],
+      "references": [
+        {
+          "id": "R",
+          "file_id": "F"
+        }
+      ],
+      "events": [
+        {
+          "id": "E1",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case11",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [],
+        "references": [
+          {
+            "id": "R",
+            "file_id": "F"
+          }
+        ],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 1,
+            "retention_basis": "references_only",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "close",
+          "state": {
+            "names": [],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 0,
+                "open_reference_count": 0,
+                "retention_basis": "none",
+                "reclamation_eligible": true
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 0,
+            "open_reference_count": 0,
+            "retention_basis": "none",
+            "reclamation_eligible": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case12",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [
+        {
+          "id": "R",
+          "file_id": "F"
+        }
+      ],
+      "events": [
+        {
+          "id": "E1",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "model_complete",
+      "complete": true,
+      "reason": "declared_lifetime_trace_only",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "id": "Case12",
+      "profile": "link_lifetime_v1",
+      "initial": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [
+          {
+            "id": "R",
+            "file_id": "F"
+          }
+        ],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 1,
+            "retention_basis": "names_and_references",
+            "reclamation_eligible": false
+          }
+        ]
+      },
+      "steps": [
+        {
+          "index": 0,
+          "id": "E1",
+          "op": "close",
+          "state": {
+            "names": [
+              {
+                "id": "A",
+                "file_id": "F"
+              }
+            ],
+            "references": [],
+            "files": [
+              {
+                "id": "F",
+                "link_count": 1,
+                "open_reference_count": 0,
+                "retention_basis": "names_only",
+                "reclamation_eligible": false
+              }
+            ]
+          }
+        }
+      ],
+      "final": {
+        "names": [
+          {
+            "id": "A",
+            "file_id": "F"
+          }
+        ],
+        "references": [],
+        "files": [
+          {
+            "id": "F",
+            "link_count": 1,
+            "open_reference_count": 0,
+            "retention_basis": "names_only",
+            "reclamation_eligible": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "id": "Case13",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "unlink",
+          "name": "Missing"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "invalid_transition",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "violation": "missing_name",
+      "event_index": 0
+    }
+  },
+  {
+    "request": {
+      "id": "Case14",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "link",
+          "source_name": "A",
+          "new_name": "A"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "invalid_transition",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "violation": "name_exists",
+      "event_index": 0
+    }
+  },
+  {
+    "request": {
+      "id": "Case15",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "close",
+          "reference_id": "R"
+        },
+        {
+          "id": "E3",
+          "op": "close",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "invalid_transition",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "violation": "missing_reference",
+      "event_index": 2
+    }
+  },
+  {
+    "request": {
+      "id": "Case16",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        },
+        {
+          "id": "E2",
+          "op": "close",
+          "reference_id": "R"
+        },
+        {
+          "id": "E3",
+          "op": "open",
+          "name": "A",
+          "reference_id": "R"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "invalid_transition",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "violation": "reference_reuse",
+      "event_index": 2
+    }
+  },
+  {
+    "request": {
+      "id": "Case17",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "link",
+          "source_name": "Missing",
+          "new_name": "B"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "invalid_transition",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "violation": "missing_name",
+      "event_index": 0
+    }
+  },
+  {
+    "request": {
+      "id": "Case18",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "rename",
+          "source_name": "A",
+          "new_name": "B"
+        },
+        {
+          "id": "E2",
+          "op": "close",
+          "reference_id": true
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "identifier",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ]
+    }
+  },
+  {
+    "request": {
+      "id": "Case19",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "rename",
+          "source_name": "A",
+          "new_name": "B"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "unsupported",
+      "complete": false,
+      "reason": "outside_subset",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "unsupported_reasons": [
+        "op_E1_rename"
+      ]
+    }
+  },
+  {
+    "request": {
+      "id": "Case20",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "F"
+        }
+      ],
+      "references": [],
+      "events": [
+        {
+          "id": "E1",
+          "op": "unlink",
+          "name": "Missing"
+        }
+      ],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "partial",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "unsupported",
+      "complete": false,
+      "reason": "outside_subset",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ],
+      "unsupported_reasons": [
+        "context_reference_coverage_partial"
+      ]
+    }
+  },
+  {
+    "request": {
+      "id": "Case21",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [
+        {
+          "id": "A",
+          "file_id": "Missing"
+        }
+      ],
+      "references": [],
+      "events": [],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "unknown_file",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ]
+    }
+  },
+  {
+    "request": {
+      "id": "Case22",
+      "version": 1,
+      "profile": "link_lifetime_v1",
+      "files": [
+        {
+          "id": "F",
+          "kind": "regular"
+        }
+      ],
+      "names": [],
+      "references": [],
+      "events": [],
+      "context": {
+        "platform": "posix_regular",
+        "reference_coverage": "complete_declared",
+        "event_outcomes": "assumed_success",
+        "excluded_features": []
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "complete": false,
+      "reason": "initial_unreferenced_file",
+      "actual_deletion": "unverified",
+      "storage_reclaimed": "unverified",
+      "secure_erasure": "unverified",
+      "durability": "unverified",
+      "permission_authorization": "unverified",
+      "assumptions": [
+        "invented_ids",
+        "declared_complete_references",
+        "events_assumed_successful",
+        "ordinary_regular_subset"
+      ],
+      "not_verified": [
+        "input_truth",
+        "reference_coverage",
+        "actual_deletion",
+        "storage_reclaimed",
+        "secure_erasure",
+        "durability",
+        "permission_authorization"
+      ]
+    }
+  }
+]

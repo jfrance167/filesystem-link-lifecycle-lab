@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-10-05T09:44:10.996825+00:00",
+  "application_files": [],
+  "full_reports": 22,
+  "finite_traces": 32,
+  "finite_snapshots": 150,
+  "files_sha256": {
+    "CONTRACT.md": "a35ea06164ca1517aca32177ea004d76ab1418765cc62815a2382e279c548677",
+    "fixtures\\oracles.json": "7ca76474bb8ccbe350b7a200283f2de8653662d20426c30ab86ae89376bd434c",
+    "fixtures\\domain.json": "39076b934aa4c655a9a26f352668ee9737149c91918a08bfa911f0fd52cfbd9a"
+  },
+  "authority": "coordinator05:37 PLAN stages1-3; exact depth/addendum recorded first",
+  "method": "22 manually expanded reports plus independent remaining-label-set permutation oracle; no candidate evaluator"
+}
